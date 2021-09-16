@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# Web-Lanjut-CI4
-=======
 # CodeIgniter 4 Application Starter
 
 ## What is CodeIgniter?
