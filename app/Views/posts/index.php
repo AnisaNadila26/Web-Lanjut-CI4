@@ -173,7 +173,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
+                        <li>
                             <a href="/admin" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
@@ -181,11 +181,11 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item menu-open">
+                        <li>
                             <a href="/admin/posts" class="nav-link">
                                 <i class="nav-icon fas fa-book-open"></i>
                                 <p>
-                                    My Posts
+                                    My Post
                                 </p>
                             </a>
                         </li>
@@ -203,7 +203,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">My Posts</h1>
+                            <h1 class="m-0">My Post</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -215,20 +215,49 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header -->
+            <!-- Main Content -->
             <div class="container">
-                <a href="/admin/posts/create" class="btn btn-primary"><i class = "fas fa-plus"></i> Tambah Data</a>
+                <a href="/admin/posts/create" class="btn btn-primary"><i class="fas fa-plus"></i> Tambah Data</a>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped text-center">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Judul</th>
+                                <th scope="col">slug</th>
+                                <th scope="col">Author</th>
+                                <th scope="col">Kategori</th>
+                                <th scope="col">action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <?php foreach ($posts as $i => $post) : ?>
+                            <tr>
+                                <th scope="row"><?= $i + 1; ?></th>
+                                <td><?= $post['judul']; ?></td>
+                                <td><?= $post['slug']; ?></td>
+                                <td><?= $post['author']; ?></td>
+                                <td><?= $post['kategori']; ?></td>
+                                <td>
+                                    <a href="/posts/edit/<?= $post['slug']; ?>" class="btn btn-sm btn-warning me-1"><i class="fas fa-edit"> Edit</i></a>
+                                    <a href="/posts/delete/<?= $post['slug']; ?>" class="btn btn-sm btn-danger"><i class="fas fa-trash"> Delete</i></a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <!--bakal dirubah -->
             </section>
+
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 3.1.0
-            </div>
+            <strong>Copyright &copy; Praktikum Web Lanjut
         </footer>
 
         <!-- Control Sidebar -->
